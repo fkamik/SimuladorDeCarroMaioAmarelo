@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/MaioAmarelo (v2.0).unity
+  isLoaded: 1
+  isActive: 1

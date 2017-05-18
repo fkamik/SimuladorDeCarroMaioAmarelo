@@ -1,0 +1,132 @@
+Base path: C:/Program Files/Unity/Editor/Data
+Cmd: initializeCompiler
+Cmd: preprocess
+  insize=9278 outsize=2054 ok=1
+Cmd: preprocess
+  insize=1292 outsize=477 ok=1
+Cmd: preprocess
+  insize=9821 outsize=841 ok=1
+Cmd: preprocess
+  insize=1768 outsize=404 ok=1
+Cmd: preprocess
+  insize=1002 outsize=407 ok=1
+Cmd: preprocess
+  insize=1089 outsize=368 ok=1
+Cmd: preprocess
+  insize=1374 outsize=464 ok=1
+Cmd: preprocess
+  insize=3698 outsize=700 ok=1
+Cmd: preprocess
+  insize=1318 outsize=460 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (42): Can't find include file frag_ao.cginc
+  error: 2 plat 20 at (45): Can't find include file frag_ao.cginc
+  error: 2 plat 20 at (48): Can't find include file frag_ao.cginc
+  error: 2 plat 20 at (51): Can't find include file frag_ao.cginc
+  error: 2 plat 20 at (55): Can't find include file frag_ao.cginc
+  insize=6632 outsize=721 ok=0
+Cmd: preprocess
+  insize=1256 outsize=366 ok=1
+Cmd: preprocess
+  insize=1515 outsize=1512 ok=1
+Cmd: preprocess
+  insize=2718 outsize=728 ok=1
+Cmd: preprocess
+  insize=1051 outsize=357 ok=1
+Cmd: preprocess
+  insize=1420 outsize=315 ok=1
+Cmd: preprocess
+  insize=1792 outsize=780 ok=1
+Cmd: preprocess
+  insize=1486 outsize=398 ok=1
+Cmd: preprocess
+  insize=1351 outsize=381 ok=1
+Cmd: preprocess
+  insize=2389 outsize=696 ok=1
+Cmd: preprocess
+  insize=1048 outsize=323 ok=1
+Cmd: preprocess
+  insize=790 outsize=288 ok=1
+Cmd: preprocess
+  insize=6533 outsize=886 ok=1
+Cmd: preprocess
+  insize=1299 outsize=312 ok=1
+Cmd: preprocess
+  insize=3684 outsize=661 ok=1
+Cmd: preprocess
+  insize=1083 outsize=301 ok=1
+Cmd: preprocess
+  insize=5439 outsize=1531 ok=1
+Cmd: preprocess
+  insize=13916 outsize=1887 ok=1
+Cmd: preprocess
+  insize=1121 outsize=410 ok=1
+Cmd: preprocess
+  insize=6372 outsize=676 ok=1
+Cmd: preprocess
+  insize=3038 outsize=706 ok=1
+Cmd: preprocess
+  insize=11529 outsize=2550 ok=1
+Cmd: preprocess
+  insize=1060 outsize=490 ok=1
+Cmd: preprocess
+  insize=13894 outsize=2326 ok=1
+Cmd: preprocess
+  insize=2033 outsize=509 ok=1
+Cmd: preprocess
+  insize=1775 outsize=354 ok=1
+Cmd: preprocess
+  insize=27352 outsize=4043 ok=1
+Cmd: preprocess
+  insize=4189 outsize=540 ok=1
+Cmd: preprocess
+  insize=2357 outsize=1245 ok=1
+Cmd: preprocess
+  insize=1109 outsize=403 ok=1
+Cmd: preprocess
+  insize=1206 outsize=478 ok=1
+Cmd: preprocess
+  insize=738 outsize=234 ok=1
+Cmd: preprocess
+  insize=5919 outsize=797 ok=1
+Cmd: preprocess
+  insize=5713 outsize=682 ok=1
+Cmd: preprocess
+  insize=7340 outsize=782 ok=1
+Cmd: preprocess
+  insize=4930 outsize=940 ok=1
+Cmd: preprocess
+  insize=5835 outsize=1225 ok=1
+Cmd: preprocess
+  insize=721 outsize=285 ok=1
+Cmd: preprocess
+  insize=3999 outsize=606 ok=1
+Cmd: preprocess
+  insize=956 outsize=352 ok=1
+Cmd: preprocess
+  insize=1422 outsize=349 ok=1
+Cmd: preprocess
+  insize=2225 outsize=1003 ok=1
+Cmd: preprocess
+  insize=5397 outsize=762 ok=1
+Cmd: preprocess
+  insize=1296 outsize=441 ok=1
+Cmd: preprocess
+  insize=657 outsize=311 ok=1
+Cmd: preprocess
+  insize=807 outsize=367 ok=1
+Cmd: preprocess
+  insize=5360 outsize=812 ok=1
+Cmd: preprocess
+  insize=1810 outsize=735 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=1969 outsize=834 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=1969 outsize=630 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=5139 outsize=3330 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=5139 outsize=666 kw= pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA ok=1
+Unhandled exception: Protocol error - failed to read correct magic number
+
+Quitting shader compiler process

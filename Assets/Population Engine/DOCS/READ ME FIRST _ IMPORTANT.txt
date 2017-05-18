@@ -1,0 +1,22 @@
+In order to prevent any potential compatibility issues with different
+versions of Unity:  The Unity Asset Store has required us to
+remove the "Standard Assets" folder from the download.
+
+So, as soon as you import our asset, please import the following:
+
+1) Characters
+2) Environment
+
+These are only required to run some of the demo scenes,
+such as the First Person Controller that allows you to
+walk around the city demo.
+
+These Standard Assets are *not* required for the actual functionality of our product.
+
+If you require any assistance, please send an email to:
+
+aibotsystem@gmail.com
+
+include your Unity version and Operating System.
+
+Good luck with your projects!

@@ -1,0 +1,11 @@
+Are you receiving problems such as NPCs running around in circles, or objects not spawning?
+
+Check the solutions in the included User Manual, PAGE 37.
+
+And if you require further assistance:
+
+1) Visit our website: www.AIBotSystem.com for video tutorials. Click the “Population Engine” section.
+
+2) Contact us at  aibotsystem@gmail.com with your Unity Invoice # and your support question. You can also contact us on our website.
+
+3) Asset Store Reviews:  Please do not leave tech support questions as Asset Store reviews. This is because we are NOT auto-notified when we receive a review.  We also do not constantly check the Reviews page.  This means it will take a long time for your question to get answered.  So the fastest way of reaching us is through email (it goes to the developers directly).  With that said, this is an evolving product, so we would appreciate a good review to let us know what we're doing right, so that we continue to do things the way you want :-)
