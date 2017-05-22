@@ -78,7 +78,13 @@ public class StopStation : MonoBehaviour
 					}
 					else
 					{
-						mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ().Waiting ();
+						PopulationEngine.NPCMotor motor = mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ();
+						RunOver runOver = mColliders[i].transform.GetComponent<RunOver> ();
+					if (motor) {
+						mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ().Waiting ();
+					} else {
+						runOver.Resume ();
+					}
 					}
 				}
 				break;
@@ -92,7 +98,13 @@ public class StopStation : MonoBehaviour
 					}
 					else
 					{
-						mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ().Walking ();
+						PopulationEngine.NPCMotor motor = mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ();
+						RunOver runOver = mColliders[i].transform.GetComponent<RunOver> ();
+						if (motor) {
+							mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ().Walking ();
+						} else {
+							runOver.Stop ();
+						}
 					}
 				}
 				break;
@@ -124,15 +136,33 @@ public class StopStation : MonoBehaviour
 		{
 			if(pCollision.transform.CompareTag ("Vehicle"))
 			{
+
+				PopulationEngine.NPCMotor motor = pCollision.transform.GetComponent<PopulationEngine.NPCMotor> ();
+				RunOver runOver = pCollision.transform.GetComponent<RunOver> ();
+
 				mColliders.Add (pCollision);
 				switch (mCurrentState)
 				{
-					case States.WALK:
-						pCollision.transform.GetComponent<PopulationEngine.NPCMotor> ().Waiting ();
+				case States.WALK:
+					
+					if (motor) {
+						motor.Waiting ();
+					}
+					else
+					{
+						runOver.Resume();
+					}
 						break;
 					case States.STOP:
 					default:
+					if(motor)
+					{
 						pCollision.transform.GetComponent<PopulationEngine.NPCMotor> ().Walking ();
+					}
+					else
+					{
+						runOver.Stop();
+					}
 						break;
 				}
 			}

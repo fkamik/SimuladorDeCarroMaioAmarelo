@@ -120,7 +120,7 @@ public class NPCMotor : MonoBehaviour {
 		//Fernando script
 		private void ChangeState(NPCStates pNewState)
 		{
-			Debug.Log ("Changing to " + pNewState);
+//			Debug.Log ("Changing to " + pNewState);
 
 			avatar = avatar ?? GetComponent<Animator>();
 
@@ -134,12 +134,16 @@ public class NPCMotor : MonoBehaviour {
 					npcEvents.canMove = false;	// temporary stop movement
 
 					currentSpeed = 0;
-
+				try
+				{
 					if (useAnimator)
 					{
 						avatar.CrossFade (randomIdleAnims [Mathf.Min(randomIdleAnims.Length - 1, Random.Range (0, randomIdleAnims.Length))], 0.3f);
 					}
-
+				}
+				catch(System.Exception ex) {
+					
+				}
 					mWaitingTimer = 0;
 					break;
 				case NPCStates.SHOCKED:

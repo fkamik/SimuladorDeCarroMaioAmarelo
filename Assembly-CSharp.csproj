@@ -48,7 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Cars\Scripts\TakeScreenshot.cs" />
      <Compile Include="Assets\Cars\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Fernando\GameManager.cs" />
      <Compile Include="Assets\Fernando\RunOver.cs" />
+     <Compile Include="Assets\Fernando\ScenesManager.cs" />
      <Compile Include="Assets\Fernando\StopOnSignCollider.cs" />
      <Compile Include="Assets\Fernando\StopStation.cs" />
      <Compile Include="Assets\Fernando\TrafficManager.cs" />
@@ -561,11 +563,11 @@
  <Reference Include="OSVR.ClientKit">
  <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/OSVRUnity/Plugins/OSVR.ClientKit.dll</HintPath>
  </Reference>
- <Reference Include="PopulationEngine">
- <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/Population Engine/Core/PopulationEngine.dll</HintPath>
- </Reference>
  <Reference Include="Google.ProtocolBuffers">
  <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ </Reference>
+ <Reference Include="PopulationEngine">
+ <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/Population Engine/Core/PopulationEngine.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

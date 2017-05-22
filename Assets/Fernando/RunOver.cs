@@ -10,12 +10,17 @@ public class RunOver : MonoBehaviour
 
 	public float CurrentTurnSpeed = 1.5f;
 	
-	private int mCurrentDestinationIndex;
+	private int mCurrentDestinationIndex = 0;
+
+	private float mStopTimer;
+
+	private const float cMaxStopTime = 3;
 
 	public enum States
 	{
 		RIDING		=		0,
-		STOP		=		1
+		STOP		=		1,
+		FINISH		=		2
 	}
 	
 	private States mCurrentState;
@@ -26,10 +31,12 @@ public class RunOver : MonoBehaviour
 		{
 			case States.RIDING:
 			default:
-				mCurrentDestinationIndex = 0;
+				
 			break;
 			case States.STOP:
 				
+			break;
+			case States.FINISH:
 			break;
 		}
 		
@@ -56,16 +63,42 @@ public class RunOver : MonoBehaviour
 			case States.STOP:
 				
 			break;
+			case States.FINISH:
+			break;
 		}
 	}
 
+
+	//Fernando script
+	//if this is a vehicle and it collides with any Vehicle or NPC, 
+	//do not allow it to move(pedestrians should always have priority)
 	void OnCollisionEnter(Collision pCollision)
 	{
-		if(pCollision.transform.CompareTag("AccidentNPC"))
+		if (transform.CompareTag ("Vehicle"))
 		{
-			ChangeState(States.STOP);
+			if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC"))
+			{
+				ChangeState (States.STOP);
+			}
+		}
+		else if(pCollision.transform.CompareTag("AccidentNPC"))
+		{
+			ChangeState(States.FINISH);
 		}
 	}
+
+	//if this is a vehicle and it was colliding with any Vehicle or NPC, resume moving now
+	void OnCollisionExit(Collision pCollision)
+	{
+		if (transform.CompareTag ("Vehicle"))
+		{
+			if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC"))
+			{
+				ChangeState (States.RIDING);
+			}
+		}
+	}
+	//end Fernando script
 	
 	void RotateTowardsDest(Vector3 dest){
 		Vector3 targetDir = Vector3.zero;
@@ -75,5 +108,15 @@ public class RunOver : MonoBehaviour
 		Quaternion rotation = Quaternion.LookRotation(targetDir - transform.position);
 		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * CurrentTurnSpeed);						        
 
+	}
+
+	public void Stop()
+	{
+		ChangeState (States.STOP);
+	}
+
+	public void Resume()
+	{
+		ChangeState (States.RIDING);
 	}
 }

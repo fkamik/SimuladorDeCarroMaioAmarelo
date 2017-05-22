@@ -360,14 +360,14 @@
  <Reference Include="OSVR.ClientKit">
  <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/OSVRUnity/Plugins/OSVR.ClientKit.dll</HintPath>
  </Reference>
+ <Reference Include="Google.ProtocolBuffers">
+ <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
+ </Reference>
  <Reference Include="PopulationEngine">
  <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/Population Engine/Core/PopulationEngine.dll</HintPath>
  </Reference>
  <Reference Include="PopulationEngineEditor">
  <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/Population Engine/Core/Editor/PopulationEngineEditor.dll</HintPath>
- </Reference>
- <Reference Include="Google.ProtocolBuffers">
- <HintPath>/Users/kamikawachi/Documents/SimuladorDeCarro/Assets/Plugins/Google.ProtocolBuffers.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
