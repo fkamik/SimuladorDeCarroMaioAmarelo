@@ -12,7 +12,7 @@ public class TrafficManager : MonoBehaviour
 	
 	private TrafficStates mCurrentState;
 	
-	private Vector2 cDefaultOpenClosedTimes = new Vector2(10, 10);
+	private Vector2 cDefaultOpenClosedTimes = new Vector2(8, 6);
 	
 	public List<StopStation> Traffic;
 	
@@ -49,13 +49,16 @@ public class TrafficManager : MonoBehaviour
 		switch(pNewState)
 		{
 			case TrafficStates.REGULAR:
-				default:
-				if(OpenClosedTimes.Count < Traffic.Count)
-				for(int i = 0; i < Traffic.Count - OpenClosedTimes.Count; ++i)
+			default:
+
+				int openClosedTimesCount = OpenClosedTimes.Count;
+
+				for (int i = 0; i < Traffic.Count - openClosedTimesCount; ++i)
 				{
-					OpenClosedTimes.Add(cDefaultOpenClosedTimes);
+					OpenClosedTimes.Add (cDefaultOpenClosedTimes);
 				}
-				
+
+
 				mTimers = new List<float>();
 				for(int i = 0; i < Traffic.Count; ++i)
 				{

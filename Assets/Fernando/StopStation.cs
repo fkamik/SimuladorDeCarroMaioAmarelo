@@ -8,10 +8,10 @@ using UnityEngine;
 public class StopStation : MonoBehaviour 
 {
 
-	private SphereCollider mCollider = null;
-
-	private const float cOriginalColliderRadius = 2;
-	private const float cRadiusIncreaseSpeed = 2f;
+//	private SphereCollider mCollider = null;
+//
+//	private const float cOriginalColliderRadius = 2;
+//	private const float cRadiusIncreaseSpeed = 2f;
 
 	private List<Collider> mColliders;
 
@@ -30,16 +30,16 @@ public class StopStation : MonoBehaviour
 
 	private void ChangeState(States pNewState)
 	{
-		mCollider = mCollider ?? GetComponent<SphereCollider> ();
+//		mCollider = mCollider ?? GetComponent<SphereCollider> ();
 
 		switch (pNewState)
 		{
 			case States.STOP:
 			default:
-				mCollider.radius = cOriginalColliderRadius;
+//				mCollider.radius = cOriginalColliderRadius;
 				break;
 			case States.WALK:
-				mCollider.radius = cOriginalColliderRadius;
+//				mCollider.radius = cOriginalColliderRadius;
 				mCounter = 0;
 				break;
 		}
