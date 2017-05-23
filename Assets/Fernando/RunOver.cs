@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class RunOver : MonoBehaviour
 {
-	public List<Transform> Destinations;
+	public Transform Destinations;
 	
 	public float Speed = 3;
 
 	public float CurrentTurnSpeed = 1.5f;
 	
-	private int mCurrentDestinationIndex = 0;
+	public int mCurrentDestinationIndex = 0;
 
 	private float mStopTimer;
 
@@ -49,19 +49,24 @@ public class RunOver : MonoBehaviour
 		{
 			case States.RIDING:
 			default:
-				transform.position = Vector3.MoveTowards(transform.position, Destinations[mCurrentDestinationIndex].position, Speed * Time.deltaTime);
-				RotateTowardsDest(Destinations[mCurrentDestinationIndex].position);
-				if(Vector3.Distance(transform.position, Destinations[mCurrentDestinationIndex].position) < Speed * Time.deltaTime)
+				transform.position = Vector3.MoveTowards(transform.position, Destinations.GetChild(mCurrentDestinationIndex).position, Speed * Time.deltaTime);
+				RotateTowardsDest(Destinations.GetChild(mCurrentDestinationIndex).position);
+			if(Vector3.Distance(transform.position, Destinations.GetChild(mCurrentDestinationIndex).position) < Speed)
 				{
 					++mCurrentDestinationIndex;
-					if(mCurrentDestinationIndex >= Destinations.Count)
+					if(mCurrentDestinationIndex >= Destinations.childCount)
 					{
 						mCurrentDestinationIndex = 0;
 					}
 				}
 			break;
 			case States.STOP:
-				
+			mStopTimer += Time.deltaTime;
+			if (mStopTimer > cMaxStopTime)
+			{
+				mStopTimer = 0;
+				ChangeState (States.RIDING);
+			}
 			break;
 			case States.FINISH:
 			break;
@@ -118,5 +123,11 @@ public class RunOver : MonoBehaviour
 	public void Resume()
 	{
 		ChangeState (States.RIDING);
+	}
+
+	public void Initialize(Transform pDestination, int pChildIndex = 0)
+	{
+		Destinations = pDestination;
+		transform.position = pDestination.GetChild (pChildIndex).position;
 	}
 }

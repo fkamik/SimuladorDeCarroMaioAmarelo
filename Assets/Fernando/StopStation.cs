@@ -118,6 +118,7 @@ public class StopStation : MonoBehaviour
 		//pedestrians have to stop and cars can keep going through their trajectory
 		if (pCollision.transform.CompareTag ("NPC"))
 		{
+			
 			mColliders.Add (pCollision);
 			
 			switch (mCurrentState)

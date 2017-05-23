@@ -5,13 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	
-	/// <summary>
-	/// Cars that will be spawned with the camera. Only one of these will be spawned at a time, 
-	/// chosen before the transition to the game scene
-	/// </summary>
-	public List<GameObject> PlayerCars;
+	public GameObject PlayerCarPrefab;
 
-	private Transform mCurrentCar;
+	public Transform PlayerDestinations;
+
+	private Transform mCurrentCar = null;
 
 	public enum GameStates
 	{
@@ -26,8 +24,9 @@ public class GameManager : MonoBehaviour
 		switch (pNewState)
 		{
 			case GameStates.DRIVING:
-				default:
+			default:
 				TrafficManager.Instance.Initialize ();
+				mCurrentCar.GetComponent<RunOver> ().Resume ();
 				break;
 			case GameStates.ACCIDENT:
 				break;
@@ -57,9 +56,30 @@ public class GameManager : MonoBehaviour
 	}
 
 
+
 	public void Initialize(int pPlayerCarIndex)
 	{
-		mCurrentCar = Instantiate(PlayerCars[pPlayerCarIndex]).transform;
+		Debug.Log ("Initializing");
+
+		StartCoroutine (LateLoad(pPlayerCarIndex));
+
+
+	}
+
+	private IEnumerator LateLoad(int pPlayerCarIndex)
+	{
+		yield return new WaitForEndOfFrame ();
+
+		if (mCurrentCar != null) {
+			Destroy (mCurrentCar.gameObject);
+		}
+		mCurrentCar = Instantiate(PlayerCarPrefab).transform;
+
+		PlayerDestinations = GameObject.Find ("Waypoints Jogador").transform;
+
+
+
+		mCurrentCar.GetComponent<RunOver> ().Initialize(PlayerDestinations.GetChild (pPlayerCarIndex)); 
 		ChangeState(GameStates.DRIVING);
 	}
 }

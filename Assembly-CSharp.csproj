@@ -49,6 +49,7 @@
      <Compile Include="Assets\Cars\Scripts\TakeScreenshot.cs" />
      <Compile Include="Assets\Cars\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Fernando\GameManager.cs" />
+     <Compile Include="Assets\Fernando\InternalCollidersScript.cs" />
      <Compile Include="Assets\Fernando\RunOver.cs" />
      <Compile Include="Assets\Fernando\ScenesManager.cs" />
      <Compile Include="Assets\Fernando\StopOnSignCollider.cs" />

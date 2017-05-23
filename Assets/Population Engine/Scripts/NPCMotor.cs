@@ -215,7 +215,7 @@ public class NPCMotor : MonoBehaviour {
 
 			mWaitingBehavior = transform.CompareTag ("Vehicle");
 
-			Debug.Log ("mWaitingBehavior = " + mWaitingBehavior);
+
 			//end Fernando script
 	}
 
@@ -309,16 +309,16 @@ public class NPCMotor : MonoBehaviour {
 		private void WaitingBehavior()
 		{
 			
-			if (mWaitingBehavior)
-			{
-				Debug.Log ("Waiting behavior");
+//			if (mWaitingBehavior)
+//			{
+//				Debug.Log ("Waiting behavior");
 				mWaitingTimer += Time.deltaTime;
 				if (mWaitingTimer > cMaxWaitingTimer)
 				{
 					mWaitingTimer = 0;
 					ChangeState (NPCStates.WALKING);
 				}
-			}
+//			}
 		}
 
 		private void WalkingBehavior()
@@ -479,7 +479,7 @@ public class NPCMotor : MonoBehaviour {
 
 	void Move(){
 //		self_transform.position += self_transform.forward * currentSpeed * Time.deltaTime;
-			self_transform.position = Vector3.MoveTowards(self_transform.position, currentDestination, currentSpeed * Time.deltaTime);
+			self_transform.position = Vector3.MoveTowards(self_transform.position, new Vector3(currentDestination.x, self_transform.position.y, currentDestination.z), currentSpeed * Time.deltaTime);
 
 
 			//Fernando modifications:
@@ -524,25 +524,25 @@ public class NPCMotor : MonoBehaviour {
 		//do not allow it to move(pedestrians should always have priority)
 		void OnCollisionEnter(Collision pCollision)
 		{
-			if (transform.CompareTag ("Vehicle"))
-			{
+//			if (transform.CompareTag ("Vehicle"))
+//			{
 				if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC"))
 				{
 					Waiting ();
 				}
-			}
+//			}
 		}
 
 		//if this is a vehicle and it was colliding with any Vehicle or NPC, resume moving now
 		void OnCollisionExit(Collision pCollision)
 		{
-			if (transform.CompareTag ("Vehicle"))
-			{
+//			if (transform.CompareTag ("Vehicle"))
+//			{
 				if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC"))
 				{
 					Walking ();
 				}
-			}
+//			}
 		}
 	//end Fernando script
 }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/MaioAmarelo (v2.0).unity
+- path: Assets/Syron/MaioAmarelo (v2.0)_new.unity
   isLoaded: 1
   isActive: 1
