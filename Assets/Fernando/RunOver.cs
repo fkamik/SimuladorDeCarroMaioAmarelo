@@ -16,6 +16,8 @@ public class RunOver : MonoBehaviour
 
 	private const float cMaxStopTime = 3;
 
+	private bool mStartRunningOver = false;
+
 	public enum States
 	{
 		RIDING		=		0,
@@ -29,14 +31,15 @@ public class RunOver : MonoBehaviour
 	{
 		switch(pNewState)
 		{
-			case States.RIDING:
-			default:
+		case States.RIDING:
+		default:
 				
 			break;
 			case States.STOP:
 				
 			break;
 			case States.FINISH:
+				mStartRunningOver = false;
 			break;
 		}
 		
@@ -54,9 +57,14 @@ public class RunOver : MonoBehaviour
 			if(Vector3.Distance(transform.position, Destinations.GetChild(mCurrentDestinationIndex).position) < Speed)
 				{
 					++mCurrentDestinationIndex;
-					if(mCurrentDestinationIndex >= Destinations.childCount)
+					if(mCurrentDestinationIndex >= Destinations.childCount - 3)
 					{
-						mCurrentDestinationIndex = 0;
+					mStartRunningOver = true;
+//						mCurrentDestinationIndex = 0;
+					}
+
+					if (mCurrentDestinationIndex >= Destinations.childCount) {
+						ChangeState (States.FINISH);
 					}
 				}
 			break;
@@ -83,23 +91,29 @@ public class RunOver : MonoBehaviour
 		{
 			if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC"))
 			{
-				ChangeState (States.STOP);
+				
+				if (mStartRunningOver) {
+					Debug.Log ("running over!");
+					if (pCollision.transform.CompareTag ("NPC")) {
+						pCollision.transform.GetComponent<RagdollController1> ().TurnOnRagdoll (true, transform.position);
+					}
+				} else {
+					Debug.Log ("stopping from RunOver");
+					ChangeState (States.STOP);
+				}
 			}
 		}
-		else if(pCollision.transform.CompareTag("AccidentNPC"))
-		{
-			ChangeState(States.FINISH);
-		}
+
 	}
 
 	//if this is a vehicle and it was colliding with any Vehicle or NPC, resume moving now
 	void OnCollisionExit(Collision pCollision)
 	{
-		if (transform.CompareTag ("Vehicle"))
-		{
-			if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC"))
-			{
-				ChangeState (States.RIDING);
+		if (!mStartRunningOver) {
+			if (transform.CompareTag ("Vehicle")) {
+				if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC")) {
+					ChangeState (States.RIDING);
+				}
 			}
 		}
 	}
@@ -110,7 +124,7 @@ public class RunOver : MonoBehaviour
 	
 		targetDir = dest;
 
-		Quaternion rotation = Quaternion.LookRotation(targetDir - transform.position);
+		Quaternion rotation = Quaternion.LookRotation(transform.position - targetDir);
 		transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * CurrentTurnSpeed);						        
 
 	}
