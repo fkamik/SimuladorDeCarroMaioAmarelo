@@ -72,19 +72,18 @@ public class StopStation : MonoBehaviour
 
 				for (int i = 0; i < mColliders.Count; ++i)
 				{
-					if(mColliders[i].transform.CompareTag("NPC"))
-					{
-						mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ().Walking ();
-					}
-					else
-					{
-						PopulationEngine.NPCMotor motor = mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ();
-						RunOver runOver = mColliders[i].transform.GetComponent<RunOver> ();
-					if (motor) {
-						mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ().Waiting ();
-					} else {
-						runOver.Resume ();
-					}
+					if (mColliders [i] != null) {
+						if (mColliders [i].transform.CompareTag ("NPC")) {
+							mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ().Walking ();
+						} else {
+							PopulationEngine.NPCMotor motor = mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ();
+							RunOver runOver = mColliders [i].transform.GetComponent<RunOver> ();
+							if (motor) {
+								mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ().Waiting ();
+							} else {
+								runOver.Resume ();
+							}
+						}
 					}
 				}
 				break;
@@ -92,20 +91,19 @@ public class StopStation : MonoBehaviour
 				default:
 				for (int i = 0; i < mColliders.Count; ++i)
 				{
-					if(mColliders[i].transform.CompareTag("NPC"))
-					{
-						mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ().Waiting ();
-					}
-					else
-					{
-						PopulationEngine.NPCMotor motor = mColliders[i].transform.GetComponent<PopulationEngine.NPCMotor> ();
-						RunOver runOver = mColliders[i].transform.GetComponent<RunOver> ();
+				if (mColliders [i] != null) {
+					if (mColliders [i].transform.CompareTag ("NPC")) {
+						mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ().Waiting ();
+					} else {
+						PopulationEngine.NPCMotor motor = mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ();
+						RunOver runOver = mColliders [i].transform.GetComponent<RunOver> ();
 						if (motor) {
 							mColliders [i].transform.GetComponent<PopulationEngine.NPCMotor> ().Walking ();
 						} else {
 							runOver.Stop ();
 						}
 					}
+				}
 				}
 				break;
 		}

@@ -147,6 +147,7 @@ public class NPCMotor : MonoBehaviour {
 					mWaitingTimer = 0;
 					break;
 				case NPCStates.SHOCKED:
+				//avatar.SetBool("shocked", true);
 					break;
 				case NPCStates.HIT:
 					break;
@@ -166,10 +167,15 @@ public class NPCMotor : MonoBehaviour {
 
 		public void Waiting()
 		{
-//			if (!mCurrentState.Equals (NPCStates.WAITING))
-//			{
+			if (!mCurrentState.Equals (NPCStates.HIT))
+			{
 				ChangeState (NPCStates.WAITING);
-//			}
+			}
+		}
+
+		public void Dead()
+		{
+			ChangeState (NPCStates.HIT);
 		}
 
 	// Use this for initialization

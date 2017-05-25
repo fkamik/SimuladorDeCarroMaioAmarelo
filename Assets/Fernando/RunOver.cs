@@ -35,8 +35,8 @@ public class RunOver : MonoBehaviour
 		default:
 				
 			break;
-			case States.STOP:
-				
+		case States.STOP:
+			mStopTimer = 0;
 			break;
 			case States.FINISH:
 				mStartRunningOver = false;
@@ -76,7 +76,8 @@ public class RunOver : MonoBehaviour
 				ChangeState (States.RIDING);
 			}
 			break;
-			case States.FINISH:
+		case States.FINISH:
+			ScenesManager.Instance.GoToLoadPath ();
 			break;
 		}
 	}
@@ -95,7 +96,9 @@ public class RunOver : MonoBehaviour
 				if (mStartRunningOver) {
 					Debug.Log ("running over!");
 					if (pCollision.transform.CompareTag ("NPC")) {
+						
 						pCollision.transform.GetComponent<RagdollController1> ().TurnOnRagdoll (true, transform.position);
+//						pCollision.transform.GetComponent<RagdollController1> ().ToggleRagdoll ();
 					}
 				} else {
 					Debug.Log ("stopping from RunOver");
@@ -112,7 +115,7 @@ public class RunOver : MonoBehaviour
 		if (!mStartRunningOver) {
 			if (transform.CompareTag ("Vehicle")) {
 				if (pCollision.transform.CompareTag ("Vehicle") || pCollision.transform.CompareTag ("NPC")) {
-					ChangeState (States.RIDING);
+//					ChangeState (States.RIDING);
 				}
 			}
 		}

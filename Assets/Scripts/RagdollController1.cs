@@ -15,7 +15,7 @@ public class RagdollController1 : MonoBehaviour
 
 	private float mFlyAwayTimer;
 
-	private const float cMaxFlyAwayTimer = 1;
+	private const float cMaxFlyAwayTimer = 0.5f;
 
 	private Vector3 mCollisionOrigin;
 
@@ -49,7 +49,8 @@ public class RagdollController1 : MonoBehaviour
 
 	public void TurnOnRagdoll(bool pRagdollMode, Vector3 pCollisionOrigin)
 	{	
-		
+
+		fallDown = pRagdollMode;
 
 		if (pRagdollMode)
 		{
@@ -72,8 +73,8 @@ public class RagdollController1 : MonoBehaviour
 
 	public void ToggleRagdoll()
 	{
-		fallDown = !fallDown;
-		TurnOnRagdoll (fallDown, GetComponent<PopulationEngine.NPCMotor>().currentDestination);
+		
+		TurnOnRagdoll (!fallDown, GetComponent<PopulationEngine.NPCMotor>().currentDestination);
 	}
 
 	//Delete this after debugging
@@ -84,10 +85,15 @@ public class RagdollController1 : MonoBehaviour
 		if(mFlyAway)
 		{
 			mFlyAwayTimer += Time.deltaTime;
-			mRigidbody.AddForce (2500 * (Vector3.Normalize(transform.position - mCollisionOrigin) + Vector3.up));
+			mRigidbody.AddForce (1000 * (Vector3.Normalize(transform.position - mCollisionOrigin) + Vector3.up));
 			if (mFlyAwayTimer > cMaxFlyAwayTimer)
 			{
 				mFlyAway = false;
+
+//				mMotor.enabled = false;
+				mMotor.Dead();
+//				GetComponent<Animator> ().enabled = false;
+//				mRDHelper.ragdolled = false;
 			}
 		}
 	}
